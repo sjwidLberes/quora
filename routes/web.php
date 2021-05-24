@@ -40,3 +40,13 @@ Route::get('/profile/{user_id}/follower', 'ProfileController@toFollower')->name(
 Route::get('/profile/{user_id}/following', 'ProfileController@toFollowing')->name('profile.following');
 Route::get('/profile/{user_id}/followquestion', 'ProfileController@toFollowQuestion')->name('profile.followquestion');
 Route::get('/profile/{user_id}/like', 'ProfileController@toLike')->name('profile.like');
+
+Route::get('/dashboard', 'AdminController@index');
+Route::get('/admin/users', 'AdminController@user');
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/test',function (){
+    return view('test');
+});
+

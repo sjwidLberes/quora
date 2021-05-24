@@ -39,3 +39,18 @@ Route::middleware('auth:api')->post('/comment/','CommentController@store');
 
 Route::middleware('auth:api')->post('/changepassword/','Auth\SetController@changePassword');
 Route::middleware('auth:api')->post('/editprofile/','Auth\SetController@editProfile');
+
+
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', function ($api) {
+
+    $api->group(['middleware' => 'jwt.auth'], function ($api) {
+        $api->get('/tasks', 'App\Http\Controllers\ApiController@index');
+        $api->post('/tasks', 'App\Http\Controllers\ApiController@store');
+        $api->patch('/tasks/{id}/complete', 'App\Http\Controllers\ApiController@update');
+        $api->delete('/tasks/{id}/delete', 'App\Http\Controllers\ApiController@delete');
+    });
+
+    $api->post('/login', 'App\Http\Controllers\ApiController@authenticate');
+
+});
