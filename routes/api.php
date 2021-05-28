@@ -52,5 +52,11 @@ $api->version('v1', function ($api) {
     });
 
     $api->post('/login', 'App\Http\Controllers\ApiController@authenticate');
+    $api->get('/hosttypes','App\Http\Controllers\HostController@hosttypes');
+    $api->get('/hosttypes/{id}','App\Http\Controllers\HostController@hostcontent');
+    $api->post('/hosttypes/','App\Http\Controllers\HostController@createhost');
+    $api->patch('/hosttypes/{id}','App\Http\Controllers\HostController@edithost');
+    $api->delete('/hosttypes/{id}','App\Http\Controllers\HostController@delhost');
+    $api->delete('/hosts/{id}','App\Http\Controllers\HostController@delhostcontent');
 
 });
