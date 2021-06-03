@@ -3,7 +3,7 @@
 namespace App\Http\Transformers;
 
 
-use App\HostType;
+use App\Hosttype;
 use League\Fractal\TransformerAbstract;
 
 /**
@@ -14,7 +14,7 @@ use League\Fractal\TransformerAbstract;
  */
 class HostTransformer extends TransformerAbstract
 {
-    public function transform(HostType $hosttype){
+    public function transform(Hosttype $hosttype){
         return [
             'id' => $hosttype->id,
             'title' =>   $hosttype->title,

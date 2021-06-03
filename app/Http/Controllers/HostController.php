@@ -25,7 +25,7 @@ class HostController extends Controller
 
     }
     public function createhost(Request $request){
-        $hosttype = new HostType();
+        $hosttype = new Hosttype();
         $hosttype->title = $request->title;
         $hosttype->save();
         foreach ($request->hostcontent as $requesthost){
